@@ -1,7 +1,13 @@
+// model user db
 import user from "../models/user.model.js";
+
+// library to encrypt
 import bcrypt from "bcryptjs";
+
+// middlewar wst
 import { createAccesToken } from "../libs/jwt.js";
 
+/*function for te procces of register*/
 export const register = async (req, res) => {
   let { email, password, userName } = req.body;
 
@@ -37,6 +43,7 @@ export const register = async (req, res) => {
   }
 };
 
+/**function for the login procces */
 export const login = async (req, res) => {
   let { email, password } = req.body;
 
@@ -70,11 +77,13 @@ export const login = async (req, res) => {
   }
 };
 
+/* function for the  logout procces */
 export const logOut = (req, res) => {
   res.cookie("token", "", { expires: new Date(0) });
   return res.sendStatus(200);
 };
 
+/* function for the process of obtaining the user's profile*/
 export const profile = async (req, res) => {
   const userFound = await user.findById(req.user.id);
   if (!userFound) return res.status(400).json({ message: "user not found" });
