@@ -10,10 +10,10 @@ import {
 
 const router = Router();
 
-router.get("/task", authToken, getTasks);
-router.get("/task/:id", authToken, getTask);
-router.post("/task", authToken, createTask);
-router.delete("/task/:id", authToken, deleteTask);
-router.put("/task/:", authToken, updateTask);
+router.get("/tasks", authToken, getTasks);
+router.get("/tasks/:id", authToken, getTask);
+router.post("/tasks", authToken, createTask);
+router.delete("/tasks/:id", authToken, deleteTask);
+router.put("/tasks/:id", authToken, updateTask);
 
 export default router;
