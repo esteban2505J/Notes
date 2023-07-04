@@ -7,11 +7,13 @@ import {
   profile,
 } from "../controllers/auth.controllers.js";
 import { authToken } from "../middlewars/authToken.js";
+import { validateSchema } from "../middlewars/validator.mddlewar.js";
+import { registerSchema, loginSchema } from "../schemas/auth.schema.js";
 
 const router = new Router();
 
-router.post("/register", register);
-router.post("/login", login);
+router.post("/register", validateSchema(registerSchema), register);
+router.post("/login", validateSchema(loginSchema), login);
 router.post("/logout", logOut);
 router.get("/profile", authToken, profile);
 

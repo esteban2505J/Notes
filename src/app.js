@@ -5,10 +5,16 @@ import morgan from "morgan";
 import autRoutes from "./routes/auth.routes.js";
 import cookieParser from "cookie-parser";
 import taskRoutes from "./routes/task.routes.js";
+import cors from "cors";
 
 dotenv.config();
 
 const app = express();
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cookieParser());
