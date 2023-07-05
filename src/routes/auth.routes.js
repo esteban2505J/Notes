@@ -12,6 +12,7 @@ import { registerSchema, loginSchema } from "../schemas/auth.schema.js";
 
 const router = new Router();
 
+router.get("/", (req, res) => res.send("home"));
 router.post("/register", validateSchema(registerSchema), register);
 router.post("/login", validateSchema(loginSchema), login);
 router.post("/logout", logOut);

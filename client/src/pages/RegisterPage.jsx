@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { registerRequest } from "../api/auth";
+import { registerRequest } from "../api/auth.js";
 
 export const RegisterPage = () => {
   const { register, handleSubmit } = useForm();
@@ -23,7 +23,7 @@ export const RegisterPage = () => {
           <form onSubmit={onSubmit}>
             <input
               type="text"
-              {...register("username", { required: true })}
+              {...register("userName", { required: true })}
               className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
               placeholder="username"
             />
@@ -42,7 +42,7 @@ export const RegisterPage = () => {
             <div className="flex items-center justify-center mt-3">
               <button
                 type="submit"
-                className="bg-[#1c1833] p-2 rounded-lg hover:bg-[#3d3e60]"
+                className="bg-[#cc458a] p-2 rounded-lg hover:bg-[#713662]"
               >
                 Register
               </button>
