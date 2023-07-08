@@ -15,6 +15,10 @@ export const register = async (req, res) => {
   const passwordHash = await bcrypt.hash(password, 10);
 
   try {
+    const userFound = await user.findOne({ email });
+
+    if (userFound) return res.status(400).json(["The email already exist."]);
+
     // create a new user
     const newUser = new user({
       email,
