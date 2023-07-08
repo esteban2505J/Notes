@@ -32,8 +32,12 @@ export const RegisterPage = () => {
       >
         <div className="max-w-md bg-[#386487] p-10 rounded-md backdrop-filter backdrop-blur-lg bg-opacity-30">
           <form onSubmit={onSubmit}>
-            {registerError.map((error) => {
-              return <div className="bg-red-500 p-2 text-white">{error}</div>;
+            {registerError.map((error, i) => {
+              return (
+                <div className="bg-red-500 p-2 text-white" key={i}>
+                  {error}
+                </div>
+              );
             })}
             <input
               type="text"
