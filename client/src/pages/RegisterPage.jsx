@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { userAuth } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
 
-export const RegisterPage = () => {
+export default function RegisterPage() {
   const {
     register,
     handleSubmit,
@@ -80,4 +80,4 @@ export const RegisterPage = () => {
       </div>
     </>
   );
-};
+}

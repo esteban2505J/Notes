@@ -1,11 +1,16 @@
 // model user db
 import user from "../models/user.model.js";
+import userModel from "../models/user.model.js";
 
 // library to encrypt
 import bcrypt from "bcryptjs";
 
 // middlewar wst
 import { createAccesToken } from "../libs/jwt.js";
+
+import jwt from "jsonwebtoken";
+
+import { KEY_TOKEN } from "../config.js";
 
 /*function for te procces of register*/
 export const register = async (req, res) => {
@@ -95,5 +100,23 @@ export const profile = async (req, res) => {
     email: userFound.email,
     createAt: userFound.createdAt,
     updatedAt: userFound.updatedAt,
+  });
+};
+
+export const verifyToken = async (req, res) => {
+  const { token } = req.cookies;
+
+  if (!token) return res.status(401).json({ message: "Unauthorized" });
+
+  jwt.verify(token, KEY_TOKEN, async (err, user) => {
+    if (err) return res.status(401).json({ message: "Unauthorized" });
+    const userFound = await userModel.findById(user.id);
+    if (!userFound) return res.status(401).json({ message: "Unauthorized" });
+
+    return res.json({
+      id: userFound.id,
+      userName: userFound.userName,
+      email: userFound.email,
+    });
   });
 };

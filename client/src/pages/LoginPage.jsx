@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { userAuth } from "../context/authContext";
+import { userAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
   const { sigIn, errors: loginErrors, isAuthenticated } = userAuth();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (isAuthenticated) navigate("/tasks");
-  }, [isAuthenticated]);
+  // useEffect(() => {
+  //   if (isAuthenticated) navigate("/tasks");
+  // }, [isAuthenticated]);
+
   const {
     register,
     handleSubmit,
