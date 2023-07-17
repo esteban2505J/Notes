@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { userAuth } from "../context/authContext";
+import { userAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export default function RegisterPage() {

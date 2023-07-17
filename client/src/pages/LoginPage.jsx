@@ -7,9 +7,9 @@ export default function LoginPage() {
   const { sigIn, errors: loginErrors, isAuthenticated } = userAuth();
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (isAuthenticated) navigate("/tasks");
-  // }, [isAuthenticated]);
+  useEffect(() => {
+    if (isAuthenticated) navigate("/tasks");
+  }, [isAuthenticated]);
 
   const {
     register,
