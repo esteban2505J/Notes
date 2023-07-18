@@ -4,7 +4,7 @@ import { userAuth } from "../context/AuthContext";
 
 function NavBar() {
   const { isAuthenticated, logOut, user } = userAuth();
-  console.log(isAuthenticated);
+  // console.log(isAuthenticated);
 
   return (
     <>
@@ -21,6 +21,7 @@ function NavBar() {
               </li>
               <li>
                 <Link
+                  className="bg-red-500 px-2 py-2 rounded-lg"
                   to={"/"}
                   onClick={() => {
                     logOut();
@@ -30,16 +31,31 @@ function NavBar() {
                 </Link>
               </li>
               <li>
-                <Link to={"/add-task"}>Add task</Link>
+                <Link
+                  to={"/add-task"}
+                  className="bg-indigo-500 px-4 py-2 rounded-lg"
+                >
+                  Add task
+                </Link>
               </li>
             </>
           ) : (
             <>
               <li>
-                <Link to={"/register"}>Register</Link>
+                <Link
+                  to={"/register"}
+                  className="bg-indigo-500 px-4 py-2 rounded-lg"
+                >
+                  Register
+                </Link>
               </li>
               <li>
-                <Link to={"/login"}>Login</Link>
+                <Link
+                  to={"/login"}
+                  className="bg-green-600 px-4 py-2 rounded-lg"
+                >
+                  Login
+                </Link>
               </li>
             </>
           )}
