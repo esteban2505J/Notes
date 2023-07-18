@@ -1,5 +1,6 @@
 import React from "react";
 import { useTasks } from "../context/TasksContext";
+import { Link } from "react-router-dom";
 
 function TaskCard({ task }) {
   const { deleteTask } = useTasks();
@@ -18,9 +19,12 @@ function TaskCard({ task }) {
         >
           Delete
         </button>
-        <button className="bg-slate-500 hover:bg-indigo-500 transition-all rounded-md p-1">
+        <Link
+          className="bg-slate-500 hover:bg-indigo-500 transition-all rounded-md p-1"
+          to={`/tasks/${task._id}`}
+        >
           Edit
-        </button>
+        </Link>
       </div>
     </div>
   );
