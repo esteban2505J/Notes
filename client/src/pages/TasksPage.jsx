@@ -12,7 +12,7 @@ export default function TasksPage() {
   if (tasks.length === 0) return <div>No tasks</div>;
   return (
     <>
-      <div className="grid grid-cols-3 gap-2 ">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2 ">
         {tasks.map((task) => {
           return <TaskCard task={task} key={task._id} />;
         })}

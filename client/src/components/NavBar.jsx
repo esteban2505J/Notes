@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { userAuth } from "../context/AuthContext";
+import { BiLogOut, BiPlusCircle, BiUser } from "react-icons/bi";
 
 function NavBar() {
   const { isAuthenticated, logOut, user } = userAuth();
@@ -12,30 +13,35 @@ function NavBar() {
         <Link to={"/"} className="text-2xl font-semibold">
           Tasks manager
         </Link>
-        <ul className="flex gap-x-2">
+        <ul className="flex gap-x-3 items-center">
           {isAuthenticated ? (
             <>
-              <li>Welcome {user.userName}</li>
+              <div className="flex ">
+                <BiUser className="m-1" />
+                <li className>Welcome {user.userName}</li>
+              </div>
               <li>
-                <Link to={"/tasks"}>Tasks</Link>
+                <Link
+                  to={"/tasks"}
+                  className="hover:text-xl transition-all hover:text-slate-400"
+                >
+                  Tasks
+                </Link>
               </li>
               <li>
                 <Link
-                  className="bg-red-500 px-2 py-2 rounded-lg"
+                  className="text-4xl"
                   to={"/"}
                   onClick={() => {
                     logOut();
                   }}
                 >
-                  Logout
+                  <BiLogOut className="bg-red-500 rounded-md p-2 " />
                 </Link>
               </li>
               <li>
-                <Link
-                  to={"/add-task"}
-                  className="bg-indigo-500 px-4 py-2 rounded-lg"
-                >
-                  Add task
+                <Link to={"/add-task"} className="text-4xl">
+                  <BiPlusCircle className="bg-indigo-500 p-1 rounded-lg text-white" />
                 </Link>
               </li>
             </>

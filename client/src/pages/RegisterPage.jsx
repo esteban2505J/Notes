@@ -32,6 +32,9 @@ export default function RegisterPage() {
       >
         <div className="max-w-md bg-[#386487] p-10 rounded-md backdrop-filter backdrop-blur-lg bg-opacity-30">
           <form onSubmit={onSubmit}>
+            <div className="text-center mb-2">
+              <h1 className="font-bold text-slate-200 text-2xl">Register</h1>
+            </div>
             {registerError.map((error, i) => {
               return (
                 <div className="bg-red-500 p-2 text-white" key={i}>
@@ -43,7 +46,7 @@ export default function RegisterPage() {
               type="text"
               {...register("userName", { required: true })}
               className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
-              placeholder="username"
+              placeholder="Username"
             />
             {errors.userName && (
               <p className=" text-red-500">Username is required</p>
@@ -53,7 +56,7 @@ export default function RegisterPage() {
               type="email"
               {...register("email", { required: true })}
               className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
-              placeholder="email"
+              placeholder="E-mail"
             />
             {errors.email && (
               <p className=" text-red-500">E-mail is required</p>
