@@ -48,18 +48,12 @@ function NavBar() {
           ) : (
             <>
               <li>
-                <Link
-                  to={"/register"}
-                  className="bg-indigo-500 px-4 py-2 rounded-lg"
-                >
+                <Link to={"/register"} className="btn btn-info btn-outline">
                   Register
                 </Link>
               </li>
               <li>
-                <Link
-                  to={"/login"}
-                  className="bg-green-600 px-4 py-2 rounded-lg"
-                >
+                <Link to={"/login"} className="btn btn-accent btn-outline">
                   Login
                 </Link>
               </li>

@@ -30,7 +30,7 @@ export default function LoginPage() {
 
         {loginErrors.map((error, i) => {
           return (
-            <div className="bg-red-500 p-2 text-white" key={i}>
+            <div className="bg-red- p-2 text-white" key={i}>
               {error}
             </div>
           );
@@ -54,10 +54,7 @@ export default function LoginPage() {
             <p className=" text-red-500">Password is required</p>
           )}
           <div className="flex items-center justify-between  mt-5">
-            <button
-              type="submit"
-              className="bg-[#d8478d] p-2 rounded-lg hover:bg-[#713662] hover:p-3 transform transition-all duration-100 justify-start"
-            >
+            <button type="submit" className=" btn btn-active btn-secondary">
               Login
             </button>
 

@@ -37,7 +37,7 @@ export default function RegisterPage() {
             </div>
             {registerError.map((error, i) => {
               return (
-                <div className="bg-red-500 p-2 text-white" key={i}>
+                <div className="bg-[#b00415] p-2 text-white" key={i}>
                   {error}
                 </div>
               );
@@ -71,10 +71,7 @@ export default function RegisterPage() {
               <p className=" text-red-500">Password is required</p>
             )}
             <div className="flex items-center justify-center mt-5">
-              <button
-                type="submit"
-                className="bg-[#d8478d] p-2 rounded-lg hover:bg-[#713662] hover:p-3 transform transition-all duration-100"
-              >
+              <button type="submit" className="btn btn-active btn-secondary">
                 Register
               </button>
             </div>
