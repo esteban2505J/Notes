@@ -8,7 +8,7 @@ export default function LoginPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (isAuthenticated) navigate("/tasks");
+    if (isAuthenticated) alert("Bienvenido a effy");
   }, [isAuthenticated]);
 
   const {

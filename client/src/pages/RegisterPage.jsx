@@ -4,18 +4,14 @@ import { userAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export default function RegisterPage() {
+  const { sigUp, isAuthenticated, errors: registerError } = userAuth();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { sigUp, isAuthenticated, errors: registerError } = userAuth();
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (isAuthenticated) navigate("/tasks");
-  }, [isAuthenticated]);
 
   /**
    * method to control the sending of the registration request
